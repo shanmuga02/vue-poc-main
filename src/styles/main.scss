@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --primary-color: #8c87f2;
+  --secondary-color: #6e86a4;
+  --background-color: #f3f6f9;
+  --card-background: #fff;
+  --card-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  --border-color: rgba(140, 135, 242, 0.3137254902);
+  --font-color: #194575;
+  --font-family: "Poppins", sans-serif;
+  --font-size-small: 12px;
+  --notification-background: #8c87f250;
+  --notification-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+html,
+body,
+#app,
+main,
+.v-main,
+.v-layout {
+  height: 100%;
+  background: transparent !important;
+}
+
+body {
+  display: block;
+  color: var(--font-color);
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: var(--font-family);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sider {
+  height: 100%;
+  display: flex;
+  align-items: start;
+  border-radius: 0 8px 8px 0;
+  width: var(--sider-width, 3%);
+
+  &-active {
+    --sider-width: 15%;
+
+    /* Width when active */
+    .sider-1 {
+      width: 25%;
+    }
+  }
+
+  &-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--card-background);
+    width: 100%;
+    height: 100%;
+    box-shadow: var(--card-shadow);
+    z-index: 1;
+  }
+
+  &-2 {
+    display: none;
+  }
+
+  &-2-active {
+    padding: 4px 8px;
+    border-left: 1px solid #c0ccd8;
+    background: var(--card-background);
+    height: 100%;
+    border-radius: 0 8px 8px 0;
+    display: block;
+    width: 85%;
+  }
+}
+
+.content {
+  width: 100%;
+  width: -moz-available;
+  /* For Firefox */
+  width: -webkit-fill-available;
+  /* For WebKit-based browsers */
+  width: fill-available;
+  /* Standard syntax */
+  height: 100%;
+  padding: 1em;
+  background-color: var(--background-color);
+  overflow: scroll;
+
+  .detailCard {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-background);
+    margin: 1em 0;
+    box-shadow: var(--card-shadow);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+
+    .header {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1em;
+      padding: 8px;
+      border-bottom: 1px solid var(--notification-background);
+    }
+  }
+}
+
+.statistics {
+  height: 200px;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  background: var(--card-background);
+  margin: 1em 0;
+  box-shadow: var(--card-shadow);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .clre {
+    margin: 0 1em;
+    flex-direction: column-reverse;
+  }
+}
+
+button {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  height: 32px;
+  border: none;
+  color: #fff;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  box-shadow: rgb(140 135 242 / 50%) 1px 4px 8px 0px;
+  border: 1px solid #6e86a450;
+  padding: 0 8px;
+
+  &.close-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    box-shadow: none;
+  }
+
+  svg {
+    margin: 0 4px;
+  }
+}
+
+.card-wrapper {
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 0 8px;
+}
+
+.card {
+  height: 58px;
+  display: flex;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.06) 2px 2px 8px 2px;
+  border: 1px solid #eee;
+  background: var(--card-background);
+  position: relative;
+  padding: 8px;
+
+  &:first-child {
+    margin-top: 1em;
+  }
+
+  &:last-child {
+    margin-bottom: 1em;
+  }
+
+  .subTitle {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+
+    small {
+      font-size: var(--font-size-small);
+      color: var(--primary-color);
+    }
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20%;
+    height: 60%;
+    width: 2px;
+    background-color: var(--primary-color);
+    box-shadow: var(--card-shadow);
+  }
+  &:nth-child(odd) {
+    &::after {
+      right: 0;
+      left: auto;
+    }
+  }
+}
+
+.card-logo {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--notification-background);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.5em;
+  margin-right: 1em;
+}
+
+.card-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.pills {
+  color: #fcfdfe;
+  margin: 0 1em;
+  padding: 0px 12px;
+  border-radius: 8px;
+  background-color: #80cbc4;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+
+  &:nth-child(odd) {
+    background-color: #a5d6a7;
+  }
+}
+
+.notificationText {
+  position: relative;
+  color: var(--secondary-color);
+  font-size: var(--font-size-small);
+  margin: 1em 0;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: var(--notification-shadow);
+
+  &::after {
+    content: "";
+    right: 0;
+    top: 25%;
+    position: absolute;
+    width: 3px;
+    height: 50%;
+    background-color: var(--primary-color);
+    box-shadow: var(--card-shadow);
+  }
+
+  &:nth-child(odd) {
+    &::after {
+      left: 0;
+    }
+  }
+}
