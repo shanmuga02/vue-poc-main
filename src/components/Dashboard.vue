@@ -7,7 +7,7 @@
     </div>
     <div class="detailCard">
       <span class="header">
-        <h2>License</h2>
+        <h2>License List</h2>
         <button @click="openModal"><font-awesome-icon :icon="['fas', 'plus']" />New Request</button>
       </span>
       <Card :tableData="tableData" />
